@@ -1,19 +1,7 @@
 #!/usr/bin/env python3
 # Tcp Port Forwarding (Reverse Proxy)
-# Author : WangYihang <wangyihanger@gmail.com>
+# Author : istiakshihab <istiak@pm.me>
 
-'''
- +-----------------------------+         +---------------------------------------------+         +--------------------------------+
- |     My Laptop (Alice)       |         |            Intermediary Server (Bob)        |         |    Internal Server (Carol)     |
- +-----------------------------+         +----------------------+----------------------+         +--------------------------------+
- | $ ssh -p 1022 carol@1.2.3.4 |<------->|    IF 1: 1.2.3.4     |  IF 2: 192.168.1.1   |<------->|       IF 1: 192.168.1.2        |
- | carol@1.2.3.4's password:   |         +----------------------+----------------------+         +--------------------------------+
- | carol@hostname:~$ whoami    |         | $ python pf.py --listen-host 1.2.3.4 \      |         | 192.168.1.2:22(OpenSSH Server) |
- | carol                       |         |                --listen-port 1022 \         |         +--------------------------------+
- +-----------------------------+         |                --connect-host 192.168.1.2 \ |
-                                         |                --connect-port 22            |
-                                         +---------------------------------------------+
-'''
 
 import socket
 import threading
